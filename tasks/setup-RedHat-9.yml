@@ -41,6 +41,7 @@
   file:
     path: "{{ docker_yum_repo_url_tmp_filepath }}"
     state: absent
+  changed_when: false
 
 - name: Configure Docker Nightly repo.
   ini_file:
