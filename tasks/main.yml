@@ -65,6 +65,15 @@
   when: containerd_config_default_write and containerd_config_cgroup_driver_systemd
   changed_when: false
 
+- name: Set grpc socket owner group
+  replace:
+    path: /tmp/containerd_config.toml
+    after: '\[grpc\].*\s+address = "/run/containerd/containerd.sock"'
+    regexp: '^(\s+gid = )\d+'
+    replace: "\\g<1>{{ containerd_config_grpc_gid }}"
+  when: containerd_config_default_write and (containerd_config_grpc_gid is defined)
+  changed_when: false
+
 - name: Copy config.toml to /etc/containerd
   copy:
     remote_src: true

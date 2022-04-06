@@ -36,6 +36,10 @@ Set systemd as cgroup driver in config.toml. Only valid with `containerd_config_
     docker_apt_ignore_key_error: true
     docker_apt_gpg_key: https://download.docker.com/linux/{{ ansible_distribution | lower }}/gpg
 
+Set grpc socket owner group in config.toml. Only valid with `containerd_config_default_write: true`
+
+    containerd_config_grpc_gid: 0
+
 Apt installation paramemeters, useful if you want to switch from the stable channel releases, or install on a different CPU architecture (e.g. `arm64`).
 
     docker_yum_repo_url: https://download.docker.com/linux/{{ (ansible_distribution == "Fedora") | ternary("fedora","centos") }}/docker-ce.repo
