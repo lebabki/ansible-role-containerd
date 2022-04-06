@@ -1,6 +1,6 @@
 # Ansible Role: Containerd
 
-[![CI](https://github.com/geerlingguy/ansible-role-containerd/workflows/CI/badge.svg?event=push)](https://github.com/geerlingguy/ansible-role-containerd/actions?query=workflow%3ACI)
+[![CI](https://github.com/lebabki/ansible-role-containerd/workflows/CI/badge.svg?event=push)](https://github.com/lebabki/ansible-role-containerd/actions?query=workflow%3ACI)
 
 An Ansible Role that installs [containerd](https://containerd.io) on Linux.
 
@@ -42,6 +42,12 @@ Apt installation paramemeters, useful if you want to switch from the stable chan
     docker_yum_repo_enable_nightly: '0'
     docker_yum_gpg_key: https://download.docker.com/linux/centos/gpg
 
+Experimental support for RHEL/Centos Stream 9. Use this until this [issue](https://github.com/docker/roadmap/issues/303) is resolved. By default it's enabled only for `ansible_distribution_major_version == 9` and includes workaround for changing `$releasever` to `8` for dnf repositories.
+
+    docker_yum_repo_url_fallback_to_8: true
+    docker_yum_repo_url_tmp_filepath: /tmp/ansible-role-containerd-docker-ce.repo
+    docker_yum_repo_url_releasever_var_name: dockerreleasever
+
 Yum/DNF installation parameters, useful if you want to switch from the stable repository.
 
 ## Dependencies
@@ -53,7 +59,7 @@ None.
 ```yaml
 - hosts: all
   roles:
-    - geerlingguy.containerd
+    - ansible-role-containerd
 ```
 
 ## License
@@ -62,4 +68,4 @@ MIT / BSD
 
 ## Author Information
 
-This role was created in 2021 by [Jeff Geerling](https://www.jeffgeerling.com/), author of [Ansible for DevOps](https://www.ansiblefordevops.com/).
+This role was originally created in 2021 by [Jeff Geerling](https://www.jeffgeerling.com/), author of [Ansible for DevOps](https://www.ansiblefordevops.com/).

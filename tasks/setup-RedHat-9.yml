@@ -1,0 +1,56 @@
+---
+- name: Add Docker GPG key.
+  rpm_key:
+    key: "{{ docker_yum_gpg_key }}"
+    state: present
+
+- name: Set dnf variable {{ docker_yum_repo_url_releasever_var_name }} to 8.
+  copy:
+    content: '8'
+    dest: "/etc/dnf/vars/{{ docker_yum_repo_url_releasever_var_name }}"
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Save Docker repo file temporary.
+  get_url:
+    url: "{{ docker_yum_repo_url }}"
+    dest: "{{ docker_yum_repo_url_tmp_filepath }}"
+    owner: root
+    group: root
+    mode: 0644
+  changed_when: false
+
+- name: Modify Docker repo file.
+  ansible.builtin.replace:
+    path: "{{ docker_yum_repo_url_tmp_filepath }}"
+    regexp: '\$releasever'
+    replace: "${{ docker_yum_repo_url_releasever_var_name }}"
+  changed_when: false
+
+- name: Add Docker repository.
+  copy:
+    remote_src: true
+    src: "{{ docker_yum_repo_url_tmp_filepath }}"
+    dest: '/etc/yum.repos.d/docker-ce.repo'
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Cleanup temporary Docker repo file.
+  file:
+    path: "{{ docker_yum_repo_url_tmp_filepath }}"
+    state: absent
+
+- name: Configure Docker Nightly repo.
+  ini_file:
+    dest: '/etc/yum.repos.d/docker-ce.repo'
+    section: 'docker-ce-nightly'
+    option: enabled
+    value: '{{ docker_yum_repo_enable_nightly }}'
+    mode: 0644
+
+- name: Ensure container-selinux is installed.
+  package:
+    name: container-selinux
+    state: present

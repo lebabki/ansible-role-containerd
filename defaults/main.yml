@@ -25,3 +25,11 @@ docker_apt_gpg_key: https://download.docker.com/linux/{{ ansible_distribution | 
 docker_yum_repo_url: https://download.docker.com/linux/{{ (ansible_distribution == "Fedora") | ternary("fedora","centos") }}/docker-ce.repo
 docker_yum_repo_enable_nightly: '0'
 docker_yum_gpg_key: https://download.docker.com/linux/centos/gpg
+
+# Used only for RedHat/CentOS Stream 9
+#
+# Fallback to docker-ce repo for distro major version 8.
+# Check out https://github.com/docker/roadmap/issues/303 .
+docker_yum_repo_url_fallback_to_8: true
+docker_yum_repo_url_tmp_filepath: /tmp/ansible-role-containerd-docker-ce.repo
+docker_yum_repo_url_releasever_var_name: dockerreleasever

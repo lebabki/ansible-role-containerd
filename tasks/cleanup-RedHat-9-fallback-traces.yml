@@ -1,0 +1,10 @@
+---
+- name: Cleanup dnf variable {{ docker_yum_repo_url_releasever_var_name }}.
+  file:
+    path: "/etc/dnf/vars/{{ docker_yum_repo_url_releasever_var_name }}"
+    state: absent
+
+- name: Cleanup temporary Docker repo file.
+  file:
+    path: "{{ docker_yum_repo_url_tmp_filepath }}"
+    state: absent

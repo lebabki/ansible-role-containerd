@@ -1,6 +1,18 @@
 ---
+- include_tasks: cleanup-RedHat-9-fallback-traces.yml
+  when:
+    - ansible_os_family == 'RedHat'
+    - ansible_distribution_major_version is version('9', '==') and not docker_yum_repo_url_fallback_to_8|bool
+
+- include_tasks: setup-RedHat-9.yml
+  when:
+    - ansible_os_family == 'RedHat'
+    - ansible_distribution_major_version is version('9', '==') and docker_yum_repo_url_fallback_to_8|bool
+
 - include_tasks: setup-RedHat.yml
-  when: ansible_os_family == 'RedHat'
+  when:
+    - ansible_os_family == 'RedHat'
+    - ansible_distribution_major_version is version('9', '<') or not docker_yum_repo_url_fallback_to_8|bool
 
 - include_tasks: setup-Debian.yml
   when: ansible_os_family == 'Debian'
