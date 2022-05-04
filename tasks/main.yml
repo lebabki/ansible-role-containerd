@@ -36,7 +36,7 @@
   file:
     path: /etc/containerd
     state: directory
-    mode: '0644'
+    mode: '0755'
   register: containerd_dir
 
 - name: Get defaults from containerd.
