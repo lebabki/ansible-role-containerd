@@ -24,6 +24,8 @@ platforms:
     stop_signal: "SIGRTMIN+3"
     tmpfs:
       - /run
+    # Need for dind in k8s with calico CNI (docker run with "--iptables=false --ip-masq=false", and calico doesn't managed dind networks)
+    network_mode: host
     privileged: false
     capabilities:
       - SYS_ADMIN  # For systemd
