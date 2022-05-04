@@ -2,7 +2,6 @@
 dependencies: []
 
 galaxy_info:
-  role_name: containerd
   author: geerlingguy
   description: containerd.io for Linux.
   company: "Midwestern Mac, LLC"

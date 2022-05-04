@@ -2,14 +2,11 @@
 - name: Converge
   hosts: all
   roles:
-    - role: "{{ lookup('file', ('%s/%s' | format(lookup('env', 'MOLECULE_PROJECT_DIRECTORY'), 'meta/main.yml')))
-                | from_yaml | community.general.json_query('galaxy_info.namespace') }}.{{ lookup('env', 'MOLECULE_PROJECT_DIRECTORY') | basename }}"
+    - role: containerd
   vars:
     _proxy: "{{ lookup('env', 'HTTP_PROXY') | urlsplit }}"
   environment:
-    https_proxy: &_proxy "{{ 'http://%s:%s' |
-                              format(_proxy.hostname, _proxy.port)
-                              if _proxy.hostname and _proxy.port else '' }}"
+    https_proxy: &_proxy "{{ 'http://%s:%s' | format(_proxy.hostname, _proxy.port) if _proxy.hostname and _proxy.port else '' }}"
     http_proxy: *_proxy
     all_proxy: *_proxy
     no_proxy: "{{ lookup('env', 'NO_PROXY') }}"
