@@ -97,7 +97,7 @@
     remote_src: true
     src: /tmp/containerd_config.toml
     dest: /etc/containerd/config.toml
-    mode: '0644'
+    mode: '0755'
   notify: restart containerd
   when: containerd_config_default_write
 
