@@ -20,7 +20,6 @@ containerd_config_cgroup_driver_systemd: false
 
 # Set registry proxies
 containerd_config_registry_mirorrs: {}
-  # k8s.gcr.io: registry.example.com
 
 # Used only for Debian/Ubuntu. Switch 'stable' to 'nightly' if needed.
 docker_apt_release_channel: stable

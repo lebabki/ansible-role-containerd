@@ -32,10 +32,6 @@ platforms:
       https_proxy: "${HTTPS_PROXY}"
       http_proxy: "${HTTP_PROXY}"
       no_proxy: "${NO_PROXY}"
-    # buildargs:
-    #   https_proxy: ${HTTPS_PROXY}
-    #   http_proxy: ${HTTP_PROXY}
-    #   no_proxy: ${NO_PROXY}
 provisioner:
   name: ansible
   log: true
