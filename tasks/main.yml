@@ -17,7 +17,8 @@
 - include_tasks: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
-- include_vars: Suse.yml
+- name: Include Suse-specific variables
+  include_vars: Suse.yml
   when: ansible_os_family == 'Suse'
 
 - name: Ensure containerd is installed.
@@ -35,6 +36,7 @@
   file:
     path: /etc/containerd
     state: directory
+    mode: '0644'
   register: containerd_dir
 
 - name: Get defaults from containerd.
@@ -47,6 +49,7 @@
   copy:
     dest: /tmp/containerd_config.toml
     content: "{{ containerd_config_default.stdout }}"
+    mode: '0644'
   when: containerd_config_default_write
   changed_when: false
 
@@ -94,6 +97,7 @@
     remote_src: true
     src: /tmp/containerd_config.toml
     dest: /etc/containerd/config.toml
+    mode: '0644'
   notify: restart containerd
   when: containerd_config_default_write
 
@@ -106,6 +110,7 @@
   file:
     path: /etc/crictl.yaml
     state: touch
+    mode: '0644'
   when: not containerd_crictl_config.stat.exists
 
 - name: Fill crictl config file

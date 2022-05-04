@@ -1,0 +1,86 @@
+2022-05-04 17:25:59,214 p=3857788 u=frost n=ansible | No config file found; using defaults
+2022-05-04 17:25:59,215 p=3857788 u=frost n=ansible | Starting galaxy role install process
+2022-05-04 17:26:21,263 p=3858340 u=frost n=ansible | No config file found; using defaults
+2022-05-04 17:26:21,264 p=3858340 u=frost n=ansible | Starting galaxy role install process
+2022-05-04 17:26:35,794 p=3858680 u=frost n=ansible | No config file found; using defaults
+2022-05-04 17:26:35,794 p=3858680 u=frost n=ansible | Starting galaxy role install process
+2022-05-04 17:27:00,612 p=3859377 u=frost n=ansible | No config file found; using defaults
+2022-05-04 17:27:00,613 p=3859377 u=frost n=ansible | Starting galaxy role install process
+2022-05-04 17:27:30,900 p=3860061 u=frost n=ansible | No config file found; using defaults
+2022-05-04 17:27:30,901 p=3860061 u=frost n=ansible | Starting galaxy role install process
+2022-05-04 17:27:48,978 p=3860573 u=frost n=ansible | No config file found; using defaults
+2022-05-04 17:27:48,979 p=3860573 u=frost n=ansible | Starting galaxy role install process
+2022-05-04 17:28:11,856 p=3861249 u=frost n=ansible | No config file found; using defaults
+2022-05-04 17:28:11,856 p=3861249 u=frost n=ansible | Starting galaxy role install process
+2022-05-04 17:28:36,312 p=3861800 u=frost n=ansible | No config file found; using defaults
+2022-05-04 17:28:36,313 p=3861800 u=frost n=ansible | Starting galaxy role install process
+2022-05-04 17:28:36,324 p=3861800 u=frost n=ansible | [WARNING]: - suseconnect was NOT installed successfully: - command /bin/git
+clone https://gitlab.rshbdev.ru:rshbintech/integrations/ckpr/infra/ansible/role
+s/suseconnect.git suseconnect failed in directory
+/home/frost/.ansible/tmp/ansible-local-3861800y_qtd90f/tmpm_8w722n (rc=128) -
+Cloning into 'suseconnect'... fatal: unable to access 'https://gitlab.rshbdev.r
+u:rshbintech/integrations/ckpr/infra/ansible/roles/suseconnect.git/': URL using
+bad/illegal format or missing URL
+
+2022-05-04 17:28:36,325 p=3861800 u=frost n=ansible | ERROR! - you can use --ignore-errors to skip failed roles and finish processing the list.
+2022-05-04 17:28:51,367 p=3862241 u=frost n=ansible | No config file found; using defaults
+2022-05-04 17:28:51,368 p=3862241 u=frost n=ansible | Starting galaxy role install process
+2022-05-04 17:28:52,643 p=3862241 u=frost n=ansible | - extracting suseconnect to /home/frost/work/RSHB/infra/ansible/roles/containerd/.cache/roles/suseconnect
+2022-05-04 17:28:52,649 p=3862241 u=frost n=ansible | - suseconnect (1.0.3) was installed successfully
+2022-05-04 17:29:21,307 p=3862878 u=frost n=ansible | No config file found; using defaults
+2022-05-04 17:29:21,308 p=3862878 u=frost n=ansible | Starting galaxy role install process
+2022-05-04 17:29:21,309 p=3862878 u=frost n=ansible | - suseconnect (1.0.3) is already installed, skipping.
+2022-05-04 17:29:30,397 p=3863067 u=frost n=ansible | No config file found; using defaults
+2022-05-04 17:29:30,397 p=3863067 u=frost n=ansible | Starting galaxy role install process
+2022-05-04 17:29:30,398 p=3863067 u=frost n=ansible | - suseconnect (1.0.3) is already installed, skipping.
+2022-05-04 17:29:40,677 p=3863275 u=frost n=ansible | No config file found; using defaults
+2022-05-04 17:29:40,677 p=3863275 u=frost n=ansible | Starting galaxy role install process
+2022-05-04 17:29:40,678 p=3863275 u=frost n=ansible | - suseconnect (1.0.3) is already installed, skipping.
+2022-05-04 17:29:41,088 p=3863276 u=frost n=ansible | Starting galaxy role install process
+2022-05-04 17:29:42,506 p=3863276 u=frost n=ansible | - extracting suseconnect to /home/frost/.cache/molecule/containerd/default/roles/suseconnect
+2022-05-04 17:29:42,512 p=3863276 u=frost n=ansible | - suseconnect (1.0.3) was installed successfully
+2022-05-04 17:29:43,746 p=3863357 u=frost n=ansible | No config file found; using defaults
+2022-05-04 17:29:43,747 p=3863357 u=frost n=ansible | Starting galaxy role install process
+2022-05-04 17:29:43,747 p=3863357 u=frost n=ansible | - suseconnect (1.0.3) is already installed, skipping.
+2022-05-04 17:34:43,536 p=3870290 u=frost n=ansible | No config file found; using defaults
+2022-05-04 17:34:43,536 p=3870290 u=frost n=ansible | Starting galaxy role install process
+2022-05-04 17:34:43,537 p=3870290 u=frost n=ansible | - suseconnect (1.0.3) is already installed, skipping.
+2022-05-04 17:35:28,823 p=3871351 u=frost n=ansible | No config file found; using defaults
+2022-05-04 17:35:28,824 p=3871351 u=frost n=ansible | Starting galaxy role install process
+2022-05-04 17:35:28,824 p=3871351 u=frost n=ansible | - suseconnect (1.0.3) is already installed, skipping.
+2022-05-04 17:36:27,650 p=3872670 u=frost n=ansible | No config file found; using defaults
+2022-05-04 17:36:27,651 p=3872670 u=frost n=ansible | Starting galaxy role install process
+2022-05-04 17:36:27,651 p=3872670 u=frost n=ansible | - suseconnect (1.0.3) is already installed, skipping.
+2022-05-04 17:39:41,050 p=3876960 u=frost n=ansible | No config file found; using defaults
+2022-05-04 17:39:41,051 p=3876960 u=frost n=ansible | Starting galaxy role install process
+2022-05-04 17:39:42,201 p=3876960 u=frost n=ansible | - extracting suseconnect to /home/frost/.cache/ansible-lint/f4112a/roles/suseconnect
+2022-05-04 17:39:42,204 p=3876960 u=frost n=ansible | - suseconnect (1.0.3) was installed successfully
+2022-05-04 17:39:43,715 p=3877075 u=frost n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2022-05-04 17:39:43,715 p=3877074 u=frost n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2022-05-04 17:39:43,719 p=3877074 u=frost n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that
+the implicit localhost does not match 'all'
+
+2022-05-04 17:39:43,719 p=3877075 u=frost n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that
+the implicit localhost does not match 'all'
+
+2022-05-04 17:39:43,876 p=3877075 u=frost n=ansible | playbook: molecule/default/prepare.yml
+2022-05-04 17:39:43,879 p=3877074 u=frost n=ansible | playbook: molecule/default/converge.yml
+2022-05-04 17:44:16,724 p=3883642 u=frost n=ansible | No config file found; using defaults
+2022-05-04 17:44:16,725 p=3883642 u=frost n=ansible | Starting galaxy role install process
+2022-05-04 17:44:16,725 p=3883642 u=frost n=ansible | - changing role suseconnect from 1.0.3 to 1.0.3
+2022-05-04 17:44:18,013 p=3883642 u=frost n=ansible | - extracting suseconnect to /home/frost/.cache/ansible-lint/f4112a/roles/suseconnect
+2022-05-04 17:44:18,015 p=3883642 u=frost n=ansible | - suseconnect (1.0.3) was installed successfully
+2022-05-04 17:44:19,500 p=3883787 u=frost n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2022-05-04 17:44:19,501 p=3883788 u=frost n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2022-05-04 17:44:19,503 p=3883787 u=frost n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that
+the implicit localhost does not match 'all'
+
+2022-05-04 17:44:19,504 p=3883788 u=frost n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that
+the implicit localhost does not match 'all'
+
+2022-05-04 17:44:19,640 p=3883788 u=frost n=ansible | playbook: molecule/default/prepare.yml
+2022-05-04 17:44:19,645 p=3883787 u=frost n=ansible | playbook: molecule/default/converge.yml
