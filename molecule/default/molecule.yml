@@ -34,7 +34,7 @@ platforms:
       https_proxy: "${HTTPS_PROXY}"
       http_proxy: "${HTTP_PROXY}"
       no_proxy: "${NO_PROXY}"
-  - << : *platform-basic
+  - <<: *platform-basic
     name: molecule-docker-sles15-${CI_JOB_ID:-1}
     image: ${CI_REGISTRY}/rshbintech/integrations/ckpr/infra/images/sles/15sp3-systemd:${IMAGE_TAG__SLES15_REGISTERED}
 provisioner:
