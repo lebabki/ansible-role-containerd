@@ -3,14 +3,3 @@
   hosts: all
   roles:
     - suseconnect
-  host_vars:
-    molecule-docker-sles15-${CI_JOB_ID:-1}:
-      suseconnect_products:
-        - product: 'sle-module-basesystem'
-          version: '15.3'
-        - product: 'sle-module-server-applications'
-          version: '15.3'
-        - product: 'sle-module-public-cloud'
-          version: '15.3'
-        - product: 'sle-module-containers'
-          version: '15.3'
