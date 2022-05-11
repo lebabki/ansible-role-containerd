@@ -5,3 +5,5 @@
     dest: /etc/apparmor.d/cri-containerd.apparmor.d
     mode: '0644'
   notify: restart apparmor
+  ## Can't start apparmor service in molecule sles15 docker image
+  tags: notest
