@@ -4,3 +4,8 @@
   roles:
     - suseconnect
   serial: 1
+  tasks:
+    - name: Install apparmor
+      zypper:
+        name: apparmor
+        state: present
