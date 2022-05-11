@@ -5,6 +5,8 @@
     state: restarted
 
 - name: restart apparmor
+  ## Can't start apparmor service in molecule sles15 docker image
+  tags: notest
   service:
     name: apparmor
     state: restarted
