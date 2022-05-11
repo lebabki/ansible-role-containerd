@@ -7,5 +7,5 @@
   tasks:
     - name: Install apparmor
       zypper:
-        name: apparmor
+        name: apparmor-parser
         state: present
