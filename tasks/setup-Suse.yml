@@ -1,0 +1,7 @@
+---
+- name: Copy apparmor default profile
+  copy:
+    src: files/Suse-apparmor-profile
+    dest: /etc/apparmor.d/cri-containerd.apparmor.d
+    mode: '0644'
+  notify: restart apparmor
