@@ -11,7 +11,7 @@ lint: |
 platforms:
   - &platform-basic
     name: molecule-docker-sles12-${CI_JOB_ID:-1}
-    image: ${CI_REGISTRY}/rshbintech/integrations/ckpr/infra/images/sles/12sp5-systemd:${IMAGE_TAG__SLES12_REGISTERED}
+    image: ${IMAGE_NAME__SLES12_REGISTERED}:${IMAGE_TAG__SLES12_REGISTERED}
     registry:
       url: ${CI_REGISTRY}
       credentials:
@@ -36,7 +36,7 @@ platforms:
       no_proxy: "${NO_PROXY}"
   - <<: *platform-basic
     name: molecule-docker-sles15-${CI_JOB_ID:-1}
-    image: ${CI_REGISTRY}/rshbintech/integrations/ckpr/infra/images/sles/15sp3-systemd:${IMAGE_TAG__SLES15_REGISTERED}
+    image: ${IMAGE_NAME__SLES15_REGISTERED}:${IMAGE_TAG__SLES15_REGISTERED}
 provisioner:
   name: ansible
   log: true
