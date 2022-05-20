@@ -42,67 +42,14 @@
     mode: '0755'
   register: containerd_dir
 
-- name: Get defaults from containerd.
-  command: containerd config default
-  changed_when: false
-  register: containerd_config_default
-  when: containerd_config_default_write
-
-- name: Prepare containerd/config.toml from default config
-  copy:
-    dest: /tmp/containerd_config.toml
-    content: "{{ containerd_config_default.stdout }}"
-    mode: '0644'
-  when: containerd_config_default_write
-  changed_when: false
-
-- name: Set Cgroup driver to systemd
-  lineinfile:
-    insertafter: '.*\[plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc.options\]$'
-    line: '            SystemdCgroup = true'
-    state: present
-    path: /tmp/containerd_config.toml
-  when: containerd_config_default_write and containerd_config_cgroup_driver_systemd
-  changed_when: false
-
-- name: Make sure  SystemdCgroup = false is not set
-  ansible.builtin.lineinfile:
-    path: /tmp/containerd_config.toml
-    state: absent
-    line: '            SystemdCgroup = false'
+- name: Deploy containerd config
+  template:
+    src: config.toml.j2
+    dest: /etc/containerd/config.toml-test
+    owner: root
+    group: root
+    mode: "644"
   notify: restart containerd
-  when: containerd_config_default_write and containerd_config_cgroup_driver_systemd
-  changed_when: false
-
-- name: Set grpc socket owner group
-  replace:
-    path: /tmp/containerd_config.toml
-    after: '\[grpc\].*\s+address = "/run/containerd/containerd.sock"'
-    regexp: '^(\s+gid = )\d+'
-    replace: "\\g<1>{{ containerd_config_grpc_gid }}"
-  when: containerd_config_default_write and (containerd_config_grpc_gid is defined)
-  changed_when: false
-
-- name: Set registry mirrors
-  blockinfile:
-    insertafter: '.*\[plugins."io.containerd.grpc.v1.cri".registry.mirrors\]$'
-    block: |8
-                    [plugins."io.containerd.grpc.v1.cri".registry.mirrors."{{ item.key }}"]
-                      endpoint = ["{{ item.value }}"]
-    state: present
-    path: /tmp/containerd_config.toml
-  when: containerd_config_default_write and ( containerd_config_registry_mirorrs | length > 0 )
-  with_items: "{{ containerd_config_registry_mirorrs | dict2items }}"
-  changed_when: false
-
-- name: Copy config.toml to /etc/containerd
-  copy:
-    remote_src: true
-    src: /tmp/containerd_config.toml
-    dest: /etc/containerd/config.toml
-    mode: '0755'
-  notify: restart containerd
-  when: containerd_config_default_write
 
 - name: Ensure crictl config exists.
   stat:

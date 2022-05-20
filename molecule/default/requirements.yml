@@ -1,5 +1,5 @@
 ---
 
-- src: git@gitlab.rshbdev.ru:rshbintech/integrations/ckpr/infra/ansible/roles/suseconnect.git
+- src: ${ANSIBLE_ROLE_SUSECONNECT}
   scm: git
   version: 1.0.4
