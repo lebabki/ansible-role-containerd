@@ -2,3 +2,4 @@
 include:
   - project: rshbintech/integrations/ckpr/ci-cd/base
     file: flow/ci-cdl/platform/ansible-role.yml
+    ref: feature/molecule-req-envs
