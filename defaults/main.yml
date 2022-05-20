@@ -9,7 +9,7 @@ containerd_service_enabled: true
 
 # Set registry proxies
 containerd_config_registry_mirorrs: {}
-  # k8s.gcr.io: registry.example.com
+# k8s.gcr.io: registry.example.com
 
 # Set containerd root directory
 containerd_config_root: /var/lib/containerd
@@ -28,14 +28,14 @@ containerd_config_cgroup_driver_systemd: "false"
 
 # Set extra runtimes for containerd in toml format with multiline
 # containerd_config_plugins_runtimes_containerd_extra_runtimes: |-
-  # [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.nvidia]
-  #   privileged_without_host_devices = false
-  #   runtime_engine = ""
-  #   runtime_root = ""
-  #   runtime_type = "io.containerd.runc.v1"
-  #   [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.nvidia.options]
-  #     BinaryName = "/usr/bin/nvidia-container-runtime"
-  #     SystemdCgroup = true
+# [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.nvidia]
+#   privileged_without_host_devices = false
+#   runtime_engine = ""
+#   runtime_root = ""
+#   runtime_type = "io.containerd.runc.v1"
+#   [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.nvidia.options]
+#     BinaryName = "/usr/bin/nvidia-container-runtime"
+#     SystemdCgroup = true
 
 
 # Used only for Debian/Ubuntu. Switch 'stable' to 'nightly' if needed.
