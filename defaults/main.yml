@@ -17,6 +17,9 @@ containerd_config_root: /var/lib/containerd
 # Set containerd grpc socket address
 containerd_config_grpc_address: /run/containerd/containerd.sock
 
+# Set containerd linux runtime
+containerd_config_plugins_containerd_default_runtime: runc
+
 # Set default linux runtime
 containerd_config_plugins_linux_default_runtime: runc
 
