@@ -1,0 +1,5 @@
+---
+
+- src: ${ANSIBLE_ROLE_SUSECONNECT}
+  scm: git
+  version: 1.0.4

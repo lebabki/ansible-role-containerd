@@ -3,3 +3,8 @@
   service:
     name: containerd
     state: restarted
+
+- name: restart apparmor
+  service:
+    name: apparmor
+    state: restarted

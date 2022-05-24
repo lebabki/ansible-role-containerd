@@ -1,0 +1,11 @@
+---
+- name: Prepare
+  hosts: all
+  roles:
+    - suseconnect
+  serial: 1
+  tasks:
+    - name: Install apparmor
+      zypper:
+        name: apparmor-parser
+        state: present

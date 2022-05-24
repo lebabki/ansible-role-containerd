@@ -7,16 +7,39 @@ containerd_package_state: present
 containerd_service_state: started
 containerd_service_enabled: true
 
-# Write a default containerd config.toml file.
-containerd_config_default_write: true
+# Set registry proxies
+containerd_config_registry_mirorrs: {}
+# k8s.gcr.io: registry.example.com
 
-# Set systemd as cgroup driver in config.toml
-# Only use with containerd_config_default_write: true
-containerd_config_cgroup_driver_systemd: false
+# Set containerd root directory
+containerd_config_root: /var/lib/containerd
+
+# Set containerd grpc socket address
+containerd_config_grpc_address: /run/containerd/containerd.sock
+
+# Set containerd linux runtime
+containerd_config_plugins_containerd_default_runtime: runc
+
+# Set default linux runtime
+containerd_config_plugins_linux_default_runtime: runc
 
 # Set group id as owner of grpc socket
-# Only use with containerd_config_default_write: true
-# containerd_config_grpc_gid: 0
+containerd_config_grpc_gid: 0
+
+# Set systemd as cgroup driver
+containerd_config_cgroup_driver_systemd: "false"
+
+# Set extra runtimes for containerd in toml format with multiline
+# containerd_config_plugins_runtimes_containerd_extra_runtimes: |-
+# [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.nvidia]
+#   privileged_without_host_devices = false
+#   runtime_engine = ""
+#   runtime_root = ""
+#   runtime_type = "io.containerd.runc.v1"
+#   [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.nvidia.options]
+#     BinaryName = "/usr/bin/nvidia-container-runtime"
+#     SystemdCgroup = true
+
 
 # Used only for Debian/Ubuntu. Switch 'stable' to 'nightly' if needed.
 docker_apt_release_channel: stable

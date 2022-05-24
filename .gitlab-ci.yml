@@ -1,0 +1,4 @@
+---
+include:
+  - project: rshbintech/integrations/ckpr/ci-cd/base
+    file: flow/ci-cdl/platform/ansible-role.yml
